@@ -33,7 +33,8 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
     "@electron-forge/plugin-fuses": "^7.11.1",
     "@electron/fuses": "^1.8.0",
-    "electron": "^28.3.3"
+    "electron": "^28.3.3",
+    "electron-builder": "^24.13.3"
   },
   "build": {
     "appId": "com.femboy.detector",
@@ -49,7 +50,17 @@
       "renderer.js"
     ],
     "win": {
-      "target": "nsis"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
     }
   },
   "dependencies": {

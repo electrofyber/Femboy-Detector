@@ -21,10 +21,15 @@
    npm run build
    ```
 
-5. **Run the installer**  
-   In the **`dist`** folder you’ll find **Femboy Detector Setup x.x.x.exe**. Run it to install the app, then open “Femboy Detector” from the Start Menu or desktop shortcut.
+5. **Get the installer**  
+   Open the **`dist`** folder. You should see **Femboy Detector Setup 1.0.0.exe** (or a similar version number). That’s the installer.
+
+6. **Install the app**  
+   Run the Setup exe. Choose install location if you want, then finish. Open “Femboy Detector” from the Start Menu or desktop shortcut.
 
 **Help / contact:** In the app, use **Help → Contact / GitHub** in the menu bar, or click **Help / Contact: GitHub** at the bottom to open this repo (issues, contact, etc.).
+
+If no installer appears in `dist` after building, run `npm install` again (this installs **electron-builder**), then run `npm run build` again.
 
 ---
 
