@@ -46,6 +46,7 @@
       "main.js",
       "preload.js",
       "index.html",
+      "credits.html",
       "styles.css",
       "renderer.js"
     ],

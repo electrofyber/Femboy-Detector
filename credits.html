@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+  <title>Credits — Femboy Detector™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .credits-page {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .credits-page h1 {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .credits-list {
+      list-style: none;
+    }
+    .credits-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .credits-list li:last-child {
+      border-bottom: none;
+    }
+    .credits-name {
+      font-weight: 600;
+    }
+    .credits-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .credits-link {
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .credits-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="credits-page">
+    <h1>Credits</h1>
+    <p class="subtitle" style="margin-bottom: 1.5rem;">This app was made using the following.</p>
+    <ul class="credits-list">
+      <li>
+        <span>
+          <span class="credits-name">Electron</span>
+          <span class="credits-desc"> — Desktop app framework</span>
+        </span>
+        <a class="credits-link" href="https://www.electronjs.org" target="_blank" rel="noopener">electronjs.org</a>
+      </li>
+      <li>
+        <span>
+          <span class="credits-name">Node.js</span>
+          <span class="credits-desc"> — JavaScript runtime</span>
+        </span>
+        <a class="credits-link" href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a>
+      </li>
+      <li>
+        <span>
+          <span class="credits-name">Google Fonts (Outfit)</span>
+          <span class="credits-desc"> — Typography</span>
+        </span>
+        <a class="credits-link" href="https://fonts.google.com/specimen/Outfit" target="_blank" rel="noopener">fonts.google.com</a>
+      </li>
+      <li>
+        <span>
+          <span class="credits-name">HTML, CSS & JavaScript</span>
+          <span class="credits-desc"> — UI and logic</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+    document.querySelectorAll('.credits-link[href^="http"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (typeof window.openExternal === 'function') {
+          e.preventDefault();
+          window.openExternal(a.href);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

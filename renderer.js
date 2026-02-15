@@ -42,3 +42,14 @@ if (helpLink && typeof window.openExternal === 'function') {
   helpLink.href = GITHUB_URL;
   helpLink.target = '_blank';
 }
+
+const creditsLink = document.getElementById('creditsLink');
+if (creditsLink && typeof window.openCredits === 'function') {
+  creditsLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.openCredits();
+  });
+} else if (creditsLink) {
+  creditsLink.href = 'credits.html';
+  creditsLink.target = '_blank';
+}
