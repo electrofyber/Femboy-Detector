@@ -1,4 +1,4 @@
-const { contextBridge, shell, ipcRenderer } = require('electron');
+const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld('openExternal', (url) => shell.openExternal(url));
+contextBridge.exposeInMainWorld('openExternal', (url) => ipcRenderer.invoke('open-external', url));
 contextBridge.exposeInMainWorld('openCredits', () => ipcRenderer.invoke('open-credits'));

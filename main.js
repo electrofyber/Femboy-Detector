@@ -32,6 +32,18 @@ function createWindow() {
 
   mainWindow.setMenu(null);
   ipcMain.handle('open-credits', () => openCreditsWindow());
+  ipcMain.handle('open-external', (event, url) => {
+    if (url && typeof url === 'string' && (url.startsWith('http://') || url.startsWith('https://'))) {
+      shell.openExternal(url);
+    }
+  });
+
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      shell.openExternal(url);
+    }
+    return { action: 'deny' };
+  });
 
   mainWindow.loadFile('index.html');
 }
