@@ -2,13 +2,26 @@
   "name": "femboy-detector",
   "version": "1.0.0",
   "description": "100% random femboy detector",
+  "keywords": [
+    "femboy",
+    "detector"
+  ],
+  "homepage": "https://github.com/electrofyber/Femboy-Detector#readme",
+  "bugs": {
+    "url": "https://github.com/electrofyber/Femboy-Detector/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electrofyber/Femboy-Detector.git"
+  },
+  "license": "MIT",
+  "author": "ElectroFyber",
+  "type": "commonks",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "electron": "^28.0.0",
     "electron-builder": "^24.9.1"
@@ -19,9 +32,17 @@
     "directories": {
       "output": "dist"
     },
-    "files": ["main.js", "index.html", "styles.css", "renderer.js"],
+    "files": [
+      "main.js",
+      "index.html",
+      "styles.css",
+      "renderer.js"
+    ],
     "win": {
-      "target": ["nsis", "portable"]
+      "target": [
+        "nsis",
+        "portable"
+      ]
     }
   }
 }
