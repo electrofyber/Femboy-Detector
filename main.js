@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, shell, ipcMain } = require('electron');
+const { app, BrowserWindow, shell, ipcMain } = require('electron');
 const path = require('path');
 
 const GITHUB_URL = 'https://github.com/electrofyber/Femboy-Detector';
@@ -30,24 +30,7 @@ function createWindow() {
     },
   });
 
-  const menuTemplate = [
-    {
-      label: 'Help',
-      submenu: [
-        {
-          label: 'Credits',
-          click: () => openCreditsWindow(),
-        },
-        {
-          label: 'Contact / GitHub',
-          click: () => shell.openExternal(GITHUB_URL),
-        },
-      ],
-    },
-  ];
-  const menu = Menu.buildFromTemplate(menuTemplate);
-  Menu.setApplicationMenu(menu);
-
+  mainWindow.setMenu(null);
   ipcMain.handle('open-credits', () => openCreditsWindow());
 
   mainWindow.loadFile('index.html');

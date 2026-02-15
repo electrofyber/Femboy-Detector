@@ -21,6 +21,7 @@ function getRandomItem(arr) {
 }
 
 const GITHUB_URL = 'https://github.com/electrofyber/Femboy-Detector';
+const ELECTROFYBER_URL = 'https://electrofyber.cfd';
 
 detectBtn.addEventListener('click', () => {
   const isFemboy = Math.random() >= 0.5;
@@ -52,4 +53,15 @@ if (creditsLink && typeof window.openCredits === 'function') {
 } else if (creditsLink) {
   creditsLink.href = 'credits.html';
   creditsLink.target = '_blank';
+}
+
+const electrofyberLink = document.getElementById('electrofyberLink');
+if (electrofyberLink && typeof window.openExternal === 'function') {
+  electrofyberLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.openExternal(ELECTROFYBER_URL);
+  });
+} else if (electrofyberLink) {
+  electrofyberLink.href = ELECTROFYBER_URL;
+  electrofyberLink.target = '_blank';
 }

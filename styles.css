@@ -124,13 +124,25 @@ footer {
   text-align: center;
 }
 
+.footer-note {
+  margin-bottom: 0.5rem;
+}
+
+.footer-help {
+  margin: 0;
+  font-weight: 400;
+}
+
+.footer-help strong {
+  color: var(--text);
+}
+
 .help-link {
-  color: var(--accent);
+  color: var(--text);
   text-decoration: none;
-  margin-top: 0.5rem;
-  display: inline-block;
 }
 
 .help-link:hover {
   text-decoration: underline;
+  color: var(--accent);
 }
