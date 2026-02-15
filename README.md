@@ -21,12 +21,10 @@
    npm run build
    ```
 
-5. **Get your .exe**  
-   After the build finishes, open the **`dist`** folder. You’ll find:
-   - **Femboy Detector Setup x.x.x.exe** – installer (run it to install the app).
-   - **Femboy Detector x.x.x.exe** – portable single .exe (no install, just run).
+5. **Run the installer**  
+   In the **`dist`** folder you’ll find **Femboy Detector Setup x.x.x.exe**. Run it to install the app, then open “Femboy Detector” from the Start Menu or desktop shortcut.
 
-Use the portable .exe if you only want one file to run or share.
+**Help / contact:** In the app, use **Help → Contact / GitHub** in the menu bar, or click **Help / Contact: GitHub** at the bottom to open this repo (issues, contact, etc.).
 
 ---
 

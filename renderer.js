@@ -20,6 +20,8 @@ function getRandomItem(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
+const GITHUB_URL = 'https://github.com/electrofyber/Femboy-Detector';
+
 detectBtn.addEventListener('click', () => {
   const isFemboy = Math.random() >= 0.5;
   const message = isFemboy ? getRandomItem(yesMessages) : getRandomItem(noMessages);
@@ -29,3 +31,14 @@ detectBtn.addEventListener('click', () => {
   resultText.textContent = message;
   resultText.className = 'result-text';
 });
+
+const helpLink = document.getElementById('helpLink');
+if (helpLink && typeof window.openExternal === 'function') {
+  helpLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.openExternal(GITHUB_URL);
+  });
+} else if (helpLink) {
+  helpLink.href = GITHUB_URL;
+  helpLink.target = '_blank';
+}

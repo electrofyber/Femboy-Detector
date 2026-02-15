@@ -121,4 +121,16 @@ footer {
   margin-top: 2rem;
   font-size: 0.8rem;
   color: var(--muted);
+  text-align: center;
+}
+
+.help-link {
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.help-link:hover {
+  text-decoration: underline;
 }
