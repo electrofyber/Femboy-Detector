@@ -1,19 +1,20 @@
 const detectBtn = document.getElementById('detectBtn');
+const nameInput = document.getElementById('nameInput');
 const resultBox = document.getElementById('resultBox');
 const resultText = document.getElementById('resultText');
 
-const yesMessages = [
-  'You ARE a femboy.',
-  'Femboy detected. ✓',
-  'Verdict: Femboy.',
-  "Yes. You're a femboy.",
+const yesTemplates = [
+  (name) => `${name}, you ARE a femboy.`,
+  (name) => `Femboy detected: ${name}. ✓`,
+  (name) => `Verdict: ${name} is a femboy.`,
+  (name) => `Yes. ${name}, you're a femboy.`,
 ];
 
-const noMessages = [
-  'You are NOT a femboy.',
-  'No femboy detected.',
-  'Verdict: Not a femboy.',
-  'Nope. Not a femboy.',
+const noTemplates = [
+  (name) => `${name}, you are NOT a femboy.`,
+  (name) => `No femboy detected (${name}).`,
+  (name) => `Verdict: ${name} is not a femboy.`,
+  (name) => `Nope. ${name} is not a femboy.`,
 ];
 
 function getRandomItem(arr) {
@@ -24,8 +25,20 @@ const GITHUB_URL = 'https://github.com/electrofyber/Femboy-Detector';
 const ELECTROFYBER_URL = 'https://electrofyber.cfd';
 
 detectBtn.addEventListener('click', () => {
+  const rawName = nameInput ? nameInput.value.trim() : '';
+  const name = rawName || 'You';
+
+  if (!rawName) {
+    resultBox.classList.remove('empty', 'yes', 'no');
+    resultBox.classList.add('empty');
+    resultText.textContent = 'Enter your name above first.';
+    resultText.className = '';
+    return;
+  }
+
   const isFemboy = Math.random() >= 0.5;
-  const message = isFemboy ? getRandomItem(yesMessages) : getRandomItem(noMessages);
+  const template = isFemboy ? getRandomItem(yesTemplates) : getRandomItem(noTemplates);
+  const message = template(name);
 
   resultBox.classList.remove('empty', 'yes', 'no');
   resultBox.classList.add(isFemboy ? 'yes' : 'no');
