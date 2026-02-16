@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "author": "ElectroFyber",
-  "type": "commonks",
+  "type": "commonjs",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",

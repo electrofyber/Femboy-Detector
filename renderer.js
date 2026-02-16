@@ -24,7 +24,10 @@ function getRandomItem(arr) {
 const GITHUB_URL = 'https://github.com/electrofyber/Femboy-Detector';
 const ELECTROFYBER_URL = 'https://electrofyber.cfd';
 
-detectBtn.addEventListener('click', () => {
+let lastIsFemboy = null;
+let sameResultStreak = 0;
+
+function runDetection() {
   const rawName = nameInput ? nameInput.value.trim() : '';
   const name = rawName || 'You';
 
@@ -36,7 +39,21 @@ detectBtn.addEventListener('click', () => {
     return;
   }
 
-  const isFemboy = Math.random() >= 0.5;
+  let isFemboy = Math.random() >= 0.5;
+
+  if (lastIsFemboy === isFemboy) {
+    sameResultStreak += 1;
+  } else {
+    sameResultStreak = 1;
+  }
+
+  if (sameResultStreak >= 3 && lastIsFemboy !== null) {
+    isFemboy = !lastIsFemboy;
+    sameResultStreak = 1;
+  }
+
+  lastIsFemboy = isFemboy;
+
   const template = isFemboy ? getRandomItem(yesTemplates) : getRandomItem(noTemplates);
   const message = template(name);
 
@@ -44,7 +61,17 @@ detectBtn.addEventListener('click', () => {
   resultBox.classList.add(isFemboy ? 'yes' : 'no');
   resultText.textContent = message;
   resultText.className = 'result-text';
-});
+}
+
+detectBtn.addEventListener('click', runDetection);
+
+if (nameInput) {
+  nameInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      runDetection();
+    }
+  });
+}
 
 const helpLink = document.getElementById('helpLink');
 if (helpLink && typeof window.openExternal === 'function') {
